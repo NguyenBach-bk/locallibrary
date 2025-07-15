@@ -1,3 +1,6 @@
 # Ignore Python cache
 __pycache__/
 *.py[cod]
+
+#Ignore .env file
+.env
