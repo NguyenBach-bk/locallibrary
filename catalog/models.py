@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from django.utils.translation import gettext as _  # Import gettext 
+from django.utils.translation import gettext as _  # Import gettext
 import uuid  # For unique book instances
 import os  # For environment variables
 
@@ -28,8 +28,8 @@ class Book(models.Model):
     author = models.ForeignKey("Author", on_delete=models.SET_NULL, null=True)
 
     summary = models.TextField(
-        max_length=int(os.environ.get('BOOK_SUMMARY_MAX_LENGTH')),  
-        help_text=_("Enter a brief description of the book"),  
+        max_length=int(os.environ.get('BOOK_SUMMARY_MAX_LENGTH')), 
+        help_text=_("Enter a brief description of the book"), 
     )
 
     isbn = models.CharField(
@@ -57,14 +57,15 @@ class Book(models.Model):
         return ','.join(genre.name for genre in self.genre.all()[:3])
 
     display_genre.short_description = 'Genre'
-    
+
+
 class BookInstance(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library)."""
 
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        help_text=_("Unique ID for this particular book across whole library"), 
+        help_text=_("Unique ID for this particular book across whole library"),
     )
     book = models.ForeignKey("Book", on_delete=models.RESTRICT)
     imprint = models.CharField(
@@ -75,8 +76,8 @@ class BookInstance(models.Model):
     LOAN_STATUS = (
         ("m", _("Maintenance")),  
         ("o", _("On loan")),  
-        ("a", _("Available")),  
-        ("r", _("Reserved")),  
+        ("a", _("Available")), 
+        ("r", _("Reserved")), 
     )
 
     status = models.CharField(
@@ -99,13 +100,13 @@ class Author(models.Model):
     """Model representing an author."""
 
     first_name = models.CharField(
-        max_length=int(os.environ.get('AUTHOR_FIRST_NAME_MAX_LENGTH')),  
+        max_length=int(os.environ.get('AUTHOR_FIRST_NAME_MAX_LENGTH')), 
     )
     last_name = models.CharField(
-        max_length=int(os.environ.get('AUTHOR_LAST_NAME_MAX_LENGTH')),  
+        max_length=int(os.environ.get('AUTHOR_LAST_NAME_MAX_LENGTH')), 
     )
     date_of_birth = models.DateField(null=True, blank=True)
-    date_of_death = models.DateField(_("Died"), null=True, blank=True)  
+    date_of_death = models.DateField(_("Died"), null=True, blank=True) 
 
     class Meta:
         ordering = ["last_name", "first_name"]
