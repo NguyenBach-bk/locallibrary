@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
 from catalog.models import Book, Author, BookInstance, Genre
-from catalog.models import LOAN_STATUS
 from django.views import generic
 
 # Define constants
@@ -13,9 +12,9 @@ def index(request):
     num_books = Book.objects.count()
     num_instances = BookInstance.objects.count()
     
-    # Available books (status = LOAN_STATUS.available)
+    # Available books (status = 'a' for Available)
     num_instances_available = BookInstance.objects.filter(
-        status__exact=LOAN_STATUS['AVAILABLE']
+        status__exact='a'
     ).count()
     
     # The 'all()' is implied by default.
