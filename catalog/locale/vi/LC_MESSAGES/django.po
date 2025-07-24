@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 22:35+0700\n"
+"POT-Creation-Date: 2025-07-24 11:47+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -109,7 +109,7 @@ msgid "Genre"
 msgstr "Thể loại"
 
 #: .\catalog\templates\catalog\book_detail.html:14
-#: .\catalog\templates\index.html:12
+#: .\catalog\templates\index.html:13
 msgid "Copies"
 msgstr "Bản sao"
 
@@ -135,11 +135,11 @@ msgstr "Sách"
 msgid "There are no books in the library."
 msgstr "Không có sách trong thư viện"
 
-#: .\catalog\templates\index.html:6
+#: .\catalog\templates\index.html:5
 msgid "Local Library Home"
 msgstr "Trang chủ thư viện"
 
-#: .\catalog\templates\index.html:7
+#: .\catalog\templates\index.html:6
 msgid "Welcome to LocalLibrary, a website developed by"
 msgstr "Chào mừng đến với LocalLibrary, một trang web được phát triển bởi"
 
@@ -147,18 +147,25 @@ msgstr "Chào mừng đến với LocalLibrary, một trang web được phát t
 msgid "Dynamic content"
 msgstr "Nội dung động"
 
-#: .\catalog\templates\index.html:9
+#: .\catalog\templates\index.html:10
 msgid "The library has the following record counts:"
 msgstr "Thư viện có các thống kê như sau:"
 
-#: .\catalog\templates\index.html:11
+#: .\catalog\templates\index.html:12
 msgid "Books"
 msgstr "Sách"
 
-#: .\catalog\templates\index.html:13
+#: .\catalog\templates\index.html:14
 msgid "Copies available"
 msgstr "Bản sao còn lại"
 
-#: .\catalog\templates\index.html:14
+#: .\catalog\templates\index.html:15
 msgid "Authors"
 msgstr "Tác giả"
+
+#: .\catalog\templates\index.html:18
+#, python-format
+msgid "You have visited this page %(counter)s time."
+msgid_plural "You have visited this page %(counter)s times."
+msgstr[0] "Bạn đã ghé thăm trang này %(counter)s lần."
+msgstr[1] "Bạn đã ghé thăm trang này %(counter)s lần."
