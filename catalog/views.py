@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from catalog.models import Book, Author, BookInstance, Genre
 from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin  
 
 # Define constants
 PAGINATION_SIZE = 10
@@ -17,18 +18,21 @@ def index(request):
         status__exact='a'
     ).count()
     
-    # The 'all()' is implied by default.
     num_authors = Author.objects.count()
 
+    # Number of visits
+    num_visits = request.session.get('num_visits', 1)
+    request.session['num_visits'] = num_visits + 1
+    
     context = {
-        "num_books": num_books,
-        "num_instances": num_instances,
-        "num_instances_available": num_instances_available,
-        "num_authors": num_authors,
+        'num_books': num_books,
+        'num_instances': num_instances,
+        'num_instances_available': num_instances_available,
+        'num_authors': num_authors,
+        'num_visits': num_visits,
     }
     
-    # Render the HTML template index.html with the data in the context variable
-    return render(request, "index.html", context=context)
+    return render(request, 'index.html', context=context)
 
 
 class BookListView(generic.ListView):
@@ -57,3 +61,14 @@ class BookDetailView(generic.DetailView):
             context['author_url'] = '#'
 
         return context
+
+
+class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
+    model = BookInstance
+    template_name = 'catalog/bookinstance_list_borrowed_user.html'
+    paginate_by = PAGINATION_SIZE
+
+    def get_queryset(self):
+        return BookInstance.objects.filter(
+            borrower=self.request.user,
+            status__exact=BookInstance.ON_LOAN  

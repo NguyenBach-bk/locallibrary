@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext as _  # Import gettext
+from django.contrib.auth.models import User
+from datetime import date
 import uuid  # For unique book instances
 import os  # For environment variables
 
@@ -61,7 +63,9 @@ class Book(models.Model):
 
 class BookInstance(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library)."""
-
+    
+    borrower = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -79,7 +83,9 @@ class BookInstance(models.Model):
         ("a", _("Available")), 
         ("r", _("Reserved")), 
     )
-
+    
+    ON_LOAN = "o"
+    
     status = models.CharField(
         max_length=1,
         choices=LOAN_STATUS,
@@ -90,10 +96,18 @@ class BookInstance(models.Model):
 
     class Meta:
         ordering = ["due_back"]
+        permissions = (("can_mark_returned", "Set book as returned"),)
 
     def __str__(self):
         """String for representing the Model object."""
         return f"{self.id} ({self.book.title})"
+        
+    @property
+    def is_overdue(self):
+        if self.due_back and date.today() > self.due_back:
+            return True
+        return False
+        return self.due_back and date.today() > self.due_back
 
 
 class Author(models.Model):
