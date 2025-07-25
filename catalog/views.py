@@ -72,3 +72,4 @@ class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
         return BookInstance.objects.filter(
             borrower=self.request.user,
             status__exact=BookInstance.ON_LOAN  
+        ).order_by('due_back')
