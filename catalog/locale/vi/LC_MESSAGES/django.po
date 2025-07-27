@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-25 9:35+0700\n"
+"POT-Creation-Date: 2025-07-27 22:46+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,95 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: .\catalog\forms.py:8
+msgid "Enter a date between now and 4 weeks (default 3)."
+msgstr "Điền một ngày trong khoảng 4 tuần kể từ hôm nay (mặc định 3)."
+
+#: .\catalog\forms.py:16
+msgid "Invalid date - renewal in past"
+msgstr "Ngày gia hạn không hợp lệ"
+
+#: .\catalog\forms.py:20
+msgid "Invalid date - renewal more than 4 weeks ahead"
+msgstr "Lỗi - Ngày gia hạn quá 4 tuần"
+
+#: .\catalog\models.py:15
+msgid "Enter a book genre (e.g. Science Fiction)"
+msgstr "Điền thể loại (vd. Khoa học viễn tưởng)"
+
+#: .\catalog\models.py:34
+msgid "Enter a brief description of the book"
+msgstr "Điền mô tả ngắn gọn của cuốn sách"
+
+#: .\catalog\models.py:38 .\catalog\templates\catalog\book_detail.html:9
+msgid "ISBN"
+msgstr "ISBN"
+
+#: .\catalog\models.py:41
+msgid ""
+"13 Character <a href=\"https://www.isbn-international.org/content/what-"
+"isbn\">ISBN number</a>"
+msgstr "Số ISBN"
+
+#: .\catalog\models.py:46
+msgid "Select a genre for this book"
+msgstr "Chọn một thể loại cho cuốn sách này"
+
+#: .\catalog\models.py:72
+msgid "Unique ID for this particular book across whole library"
+msgstr "ID riêng biệt của cuốn sách trong thư viện"
+
+#: .\catalog\models.py:81
+msgid "Maintenance"
+msgstr "Bảo trì"
+
+#: .\catalog\models.py:82
+msgid "On loan"
+msgstr "Đang được mượn"
+
+#: .\catalog\models.py:83
+msgid "Available"
+msgstr "Sẵn có"
+
+#: .\catalog\models.py:84
+msgid "Reserved"
+msgstr "Đã được đặt trước"
+
+#: .\catalog\models.py:94
+msgid "Book availability"
+msgstr "Tình trạng sách"
+
+#: .\catalog\models.py:123
+msgid "Died"
+msgstr "Đã mất"
+
+#: .\catalog\templates\base_generic.html:8
+msgid "Local Library"
+msgstr "Local Library"
+
+#: .\catalog\templates\base_generic.html:20
+msgid "Home"
+msgstr "Trang chủ"
+
+#: .\catalog\templates\base_generic.html:23
+msgid "All books"
+msgstr "Tất cả sách"
+
+#: .\catalog\templates\base_generic.html:26
+msgid "All authors"
+msgstr "Tất cả tác giả"
+
 #: .\catalog\templates\base_generic.html:39
 msgid "previous"
 msgstr "Trước"
 
 #: .\catalog\templates\base_generic.html:43
-#, python-format
-msgid "Page %(current)s of %(total)s."
+#, fuzzy, python-format
+#| msgid "Page %(current)s of %(total)s."
+msgid ""
+"\n"
+"                  Page %(current)s of %(total)s.\n"
+"                "
 msgstr "Trang %(current)s của %(total)s."
 
 #: .\catalog\templates\base_generic.html:49
@@ -47,6 +129,104 @@ msgstr "Đăng xuất"
 msgid "Login"
 msgstr "Đăng nhập"
 
+#: .\catalog\templates\catalog\author_confirm_delete.html:3
+#, fuzzy
+#| msgid "Authors"
+msgid "Delete Author"
+msgstr "Tác giả"
+
+#: .\catalog\templates\catalog\author_confirm_delete.html:4
+msgid "Are you sure you want to delete the author:"
+msgstr "Bạn có muốn xoá tác giả:"
+
+#: .\catalog\templates\catalog\author_confirm_delete.html:6
+msgid "Yes, delete"
+msgstr "Có, xoá"
+
+#: .\catalog\templates\catalog\author_form.html:9
+#: .\catalog\templates\catalog\book_renew_librarian.html:14
+msgid "Submit"
+msgstr "Submit"
+
+#: .\catalog\templates\catalog\author_list.html:5
+#, fuzzy
+#| msgid "Authors"
+msgid "Author List"
+msgstr "Tác giả"
+
+#: .\catalog\templates\catalog\author_list.html:19
+#, fuzzy
+#| msgid "There are no books in the library."
+msgid "There are no authors in the library."
+msgstr "Không có sách trong thư viện"
+
+#: .\catalog\templates\catalog\book_detail.html:5
+msgid "Title"
+msgstr "Tên sách"
+
+#: .\catalog\templates\catalog\book_detail.html:7
+#, fuzzy
+#| msgid "Authors"
+msgid "Author"
+msgstr "Tác giả"
+
+#: .\catalog\templates\catalog\book_detail.html:8
+msgid "Summary"
+msgstr "Tóm tắt"
+
+#: .\catalog\templates\catalog\book_detail.html:10
+msgid "Language"
+msgstr "Ngôn ngữ"
+
+#: .\catalog\templates\catalog\book_detail.html:11
+msgid "Genre"
+msgstr "Thể loại"
+
+#: .\catalog\templates\catalog\book_detail.html:14
+#: .\catalog\templates\index.html:13
+msgid "Copies"
+msgstr "Bản sao"
+
+#: .\catalog\templates\catalog\book_detail.html:24
+msgid "Due to be returned"
+msgstr "Thời gian hoàn trả"
+
+#: .\catalog\templates\catalog\book_detail.html:26
+msgid "Imprint"
+msgstr "Ấn hiệu"
+
+#: .\catalog\templates\catalog\book_detail.html:27
+msgid "Id"
+msgstr "Id"
+
+#: .\catalog\templates\catalog\book_list.html:5
+#, fuzzy
+#| msgid "Books"
+msgid "Book List"
+msgstr "Sách"
+
+#: .\catalog\templates\catalog\book_list.html:15
+msgid "There are no books in the library."
+msgstr "Không có sách trong thư viện"
+
+#: .\catalog\templates\catalog\book_renew_librarian.html:3
+msgid "Renew:"
+msgstr "Gia hạn:"
+
+#: .\catalog\templates\catalog\book_renew_librarian.html:4
+#, fuzzy
+#| msgid "My Borrowed"
+msgid "Borrower"
+msgstr "Sách đã mượn"
+
+#: .\catalog\templates\catalog\book_renew_librarian.html:6
+msgid "Overdue"
+msgstr "Quá hạn"
+
+#: .\catalog\templates\catalog\book_renew_librarian.html:8
+msgid "Due date"
+msgstr "Ngày trả"
+
 #: .\catalog\templates\catalog\bookinstance_list_borrowed_user.html:5
 msgid "My Borrowed Books"
 msgstr "Sách đang mượn"
@@ -54,6 +234,41 @@ msgstr "Sách đang mượn"
 #: .\catalog\templates\catalog\bookinstance_list_borrowed_user.html:19
 msgid "You have no books on loan."
 msgstr "Bạn không có sách nào đang được mượn."
+
+#: .\catalog\templates\index.html:5
+msgid "Local Library Home"
+msgstr "Trang chủ thư viện"
+
+#: .\catalog\templates\index.html:6
+msgid "Welcome to LocalLibrary, a website developed by"
+msgstr "Chào mừng đến với LocalLibrary, một trang web được phát triển bởi"
+
+#: .\catalog\templates\index.html:8
+msgid "Dynamic content"
+msgstr "Nội dung động"
+
+#: .\catalog\templates\index.html:10
+msgid "The library has the following record counts:"
+msgstr "Thư viện có các thống kê như sau:"
+
+#: .\catalog\templates\index.html:12
+msgid "Books"
+msgstr "Sách"
+
+#: .\catalog\templates\index.html:14
+msgid "Copies available"
+msgstr "Bản sao còn lại"
+
+#: .\catalog\templates\index.html:15
+msgid "Authors"
+msgstr "Tác giả"
+
+#: .\catalog\templates\index.html:18
+#, python-format
+msgid "You have visited this page %(counter)s time."
+msgid_plural "You have visited this page %(counter)s times."
+msgstr[0] "Bạn đã ghé thăm trang này %(counter)s lần."
+msgstr[1] "Bạn đã ghé thăm trang này %(counter)s lần."
 
 #: .\catalog\templates\registration\logged_out.html:4
 msgid "Logged out!"
@@ -121,7 +336,8 @@ msgid ""
 "We've emailed you instructions for setting your password. If they haven't "
 "arrived in a few minutes, check your spam folder."
 msgstr ""
-"Chúng tôi đã gửi hướng dẫn đặt lại mật khẩu qua email. Nếu bạn chưa nhận được, vui lòng kiểm tra thư rác."
+"Chúng tôi đã gửi hướng dẫn đặt lại mật khẩu qua email. Nếu bạn chưa nhận "
+"được, vui lòng kiểm tra thư rác."
 
 #: .\catalog\templates\registration\password_reset_email.html:5
 msgid "Enter email to reset account"
@@ -130,127 +346,3 @@ msgstr "Nhập email để đặt lại tài khoản"
 #: .\catalog\templates\registration\password_reset_email.html:12
 msgid "Reset password"
 msgstr "Đặt lại mật khẩu"
-
-#: .\catalog\models.py:77
-msgid "Maintenance"
-msgstr "Bảo trì"
-
-#: .\catalog\models.py:78
-msgid "On loan"
-msgstr "Đang được mượn"
-
-#: .\catalog\models.py:79
-msgid "Available"
-msgstr "Sẵn có"
-
-#: .\catalog\models.py:80
-msgid "Reserved"
-msgstr "Đã được đặt trước"
-
-#: .\catalog\models.py:88
-msgid "Book availability"
-msgstr "Tình trạng sách"
-
-#: .\catalog\models.py:109
-msgid "Died"
-msgstr "Đã mất"
-
-#: .\catalog\templates\base_generic.html:6
-msgid "Local Library"
-msgstr "Local Library"
-
-#: .\catalog\templates\base_generic.html:19
-msgid "Home"
-msgstr "Trang chủ"
-
-#: .\catalog\templates\base_generic.html:20
-msgid "All books"
-msgstr "Tất cả sách"
-
-#: .\catalog\templates\base_generic.html:21
-msgid "All authors"
-msgstr "Tất cả tác giả"
-
-#: .\catalog\templates\catalog\book_detail.html:5
-msgid "Title"
-msgstr "Tên sách"
-
-#: .\catalog\templates\catalog\book_detail.html:7
-#, fuzzy
-#| msgid "Authors"
-msgid "Author"
-msgstr "Tác giả"
-
-#: .\catalog\templates\catalog\book_detail.html:8
-msgid "Summary"
-msgstr "Tóm tắt"
-
-#: .\catalog\templates\catalog\book_detail.html:10
-msgid "Language"
-msgstr "Ngôn ngữ"
-
-#: .\catalog\templates\catalog\book_detail.html:11
-msgid "Genre"
-msgstr "Thể loại"
-
-#: .\catalog\templates\catalog\book_detail.html:14
-#: .\catalog\templates\index.html:13
-msgid "Copies"
-msgstr "Bản sao"
-
-#: .\catalog\templates\catalog\book_detail.html:24
-msgid "Due to be returned"
-msgstr "Thời gian hoàn trả"
-
-#: .\catalog\templates\catalog\book_detail.html:26
-msgid "Imprint"
-msgstr "Ấn hiệu"
-
-#: .\catalog\templates\catalog\book_detail.html:27
-msgid "Id"
-msgstr "Id"
-
-#: .\catalog\templates\catalog\book_list.html:5
-#, fuzzy
-#| msgid "Books"
-msgid "Book List"
-msgstr "Sách"
-
-#: .\catalog\templates\catalog\book_list.html:15
-msgid "There are no books in the library."
-msgstr "Không có sách trong thư viện"
-
-#: .\catalog\templates\index.html:5
-msgid "Local Library Home"
-msgstr "Trang chủ thư viện"
-
-#: .\catalog\templates\index.html:6
-msgid "Welcome to LocalLibrary, a website developed by"
-msgstr "Chào mừng đến với LocalLibrary, một trang web được phát triển bởi"
-
-#: .\catalog\templates\index.html:8
-msgid "Dynamic content"
-msgstr "Nội dung động"
-
-#: .\catalog\templates\index.html:10
-msgid "The library has the following record counts:"
-msgstr "Thư viện có các thống kê như sau:"
-
-#: .\catalog\templates\index.html:12
-msgid "Books"
-msgstr "Sách"
-
-#: .\catalog\templates\index.html:14
-msgid "Copies available"
-msgstr "Bản sao còn lại"
-
-#: .\catalog\templates\index.html:15
-msgid "Authors"
-msgstr "Tác giả"
-
-#: .\catalog\templates\index.html:18
-#, python-format
-msgid "You have visited this page %(counter)s time."
-msgid_plural "You have visited this page %(counter)s times."
-msgstr[0] "Bạn đã ghé thăm trang này %(counter)s lần."
-msgstr[1] "Bạn đã ghé thăm trang này %(counter)s lần."
