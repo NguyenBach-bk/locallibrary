@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1>{% trans "Author List" %}</h1>
+
+  {% if author_list %}
+    <ul>
+      {% for author in author_list %}
+        <li>
+          <a href="{% url 'author-detail' author.pk %}">
+            {{ author.last_name }}, {{ author.first_name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {# nếu paginate_by, thêm điều khiển phân trang ở đây #}
+  {% else %}
+    <p>{% trans "There are no authors in the library." %}</p>
+  {% endif %}
+{% endblock %}
